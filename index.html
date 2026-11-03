@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14532d">
+  <meta name="description" content="Database alamat pelanggan pribadi yang bisa digunakan offline.">
+  <title>Ahmad Database</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <p class="eyebrow">DATABASE PELANGGAN</p>
+      <h1>Ahmad Database</h1>
+      <p class="sub">Simpan alamat dan foto rumah pelanggan.</p>
+    </div>
+    <span id="connection" class="status">Memeriksa...</span>
+  </header>
+
+  <main>
+    <section class="panel">
+      <h2 id="formTitle">Tambah pelanggan</h2>
+      <form id="customerForm">
+        <input type="hidden" id="customerId">
+        <label for="name">Nama pelanggan</label>
+        <input id="name" maxlength="100" required placeholder="Contoh: Budi">
+
+        <label for="address">Alamat lengkap</label>
+        <textarea id="address" rows="3" maxlength="1000" required placeholder="Nama jalan, nomor rumah, kelurahan..."></textarea>
+
+        <label for="maps">Link Google Maps (opsional)</label>
+        <input id="maps" type="url" inputmode="url" placeholder="https://maps.app.goo.gl/...">
+
+        <label for="photo">Foto rumah (satu foto per pelanggan)</label>
+        <input id="photo" type="file" accept="image/*" capture="environment">
+        <div id="photoPreview" class="preview hidden">
+          <img id="previewImage" alt="Pratinjau foto rumah">
+          <button type="button" id="removePhoto" class="text-button">Hapus foto pilihan</button>
+        </div>
+        <p class="hint">Foto baru akan menggantikan foto lama saat data disimpan.</p>
+
+        <div class="actions">
+          <button class="primary" type="submit" id="saveBtn">Simpan pelanggan</button>
+          <button class="secondary hidden" type="button" id="cancelEdit">Batal edit</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="records">
+      <div class="list-heading">
+        <div><h2>Daftar pelanggan</h2><p id="count" class="hint">0 pelanggan</p></div>
+      </div>
+      <input id="search" class="search" placeholder="Cari nama atau alamat..." autocomplete="off">
+      <div id="customerList" class="customer-list"></div>
+      <p id="empty" class="empty">Belum ada data. Tambahkan pelanggan pertama.</p>
+    </section>
+
+    <section class="panel backup">
+      <h2>Backup & pemulihan</h2>
+      <p class="hint">Backup menyimpan data pelanggan beserta foto. Simpan file backup di tempat aman atau pindahkan ke HP lain.</p>
+      <div class="actions">
+        <button id="exportBtn" class="secondary" type="button">Buat backup</button>
+        <button id="importBtn" class="secondary" type="button">Pulihkan backup</button>
+        <input id="importFile" type="file" accept="application/json,.json" hidden>
+      </div>
+      <p class="hint">Pemulihan akan menambahkan data dari backup. Jika ada ID yang sama, data dari backup akan menggantikan data tersebut.</p>
+    </section>
+  </main>
+
+  <footer>Ahmad Database • Data disimpan di perangkat ini</footer>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

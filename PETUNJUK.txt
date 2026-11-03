@@ -1,0 +1,24 @@
+AHMAD DATABASE - VERSI AWAL
+
+Isi folder:
+- index.html: tampilan aplikasi
+- style.css: desain
+- app.js: database, foto, pencarian, backup/restore
+- sw.js: cache agar aplikasi dapat dibuka offline setelah pertama kali dimuat
+- manifest.json dan icon.svg: identitas aplikasi
+
+CARA MEMASANG:
+1. Buat repository GitHub baru bernama ahmad-database.
+2. Upload semua file di dalam folder ini (bukan folder pembungkus ZIP).
+3. Di Settings > Pages, pilih Deploy from a branch, branch main, folder / (root), lalu Save.
+4. Tunggu sampai GitHub Pages memberi alamat website.
+5. Buka alamat itu sekali dengan internet memakai Chrome Android.
+6. Pilih menu Chrome > Tambahkan ke layar utama / Install app jika tersedia.
+7. Buka aplikasi dan coba simpan satu data percobaan.
+
+PENTING:
+- Data pelanggan dan foto disimpan di penyimpanan browser pada perangkat.
+- Backup JSON menyertakan foto. Simpan file backup di tempat lain secara berkala.
+- Jangan hapus data situs/browser sebelum membuat backup.
+- Untuk pindah HP: buat backup di HP lama, buka aplikasi di HP baru, lalu Pulihkan backup.
+- Ini versi awal; uji dengan data percobaan dahulu sebelum memasukkan data penting.
